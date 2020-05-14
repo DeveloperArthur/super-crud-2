@@ -1,35 +1,32 @@
 package br.com.crud2.controller;
 
 import br.com.crud2.dominio.Usuario;
-import br.com.crud2.repository.UsuarioRepository;
+import br.com.crud2.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class UsuarioController {
     @Autowired
-    UsuarioRepository repository;
+    UsuarioService service;
 
-    public String adicionar(Usuario usuario){
-        repository.save(usuario);
-        return "Usuario adicionado com sucesso";
+    public String adicionar(Usuario usuario) {
+        return service.adicionar(usuario);
     }
 
-    public String atualizar(Usuario usuario){
-        repository.save(usuario);
-        return "Usuario atualizado com sucesso";
+    public String atualizar(Usuario usuario) {
+        return service.atualizar(usuario);
     }
 
-    public String deletar(Long id){
-        repository.delete(id);
-        return "Usuario excluido com sucesso";
+    public String deletar(Long id) {
+        return service.deletar(id);
     }
 
-    public Usuario buscarPorId(Long id){
-        return repository.findOne(id);
+    public Usuario buscarPorId(Long id) {
+        return service.buscarPorId(id);
     }
 
-    public List<Usuario> listar(){
-        return repository.findAll();
+    public List<Usuario> listar() {
+        return service.listar();
     }
 }
