@@ -3,9 +3,11 @@ package br.com.crud2.controller;
 import br.com.crud2.dominio.Usuario;
 import br.com.crud2.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import java.util.List;
 
+@Controller
 public class UsuarioController {
     @Autowired
     UsuarioService service;

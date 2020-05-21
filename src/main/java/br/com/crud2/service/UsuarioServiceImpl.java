@@ -3,29 +3,43 @@ package br.com.crud2.service;
 import br.com.crud2.dominio.Usuario;
 import br.com.crud2.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     UsuarioRepository repository;
 
     @Override
     public String adicionar(Usuario usuario) {
-        repository.save(usuario);
-        return "Usuario adicionado com sucesso";
+        try {
+            repository.save(usuario);
+            return "Usuario adicionado com sucesso";
+        } catch (Exception e) {
+            return "Erro ao adicionar usuario";
+        }
     }
 
     @Override
     public String atualizar(Usuario usuario) {
-        repository.save(usuario);
-        return "Usuario atualizado com sucesso";
+        try {
+            repository.save(usuario);
+            return "Usuario atualizado com sucesso";
+        } catch (Exception e) {
+            return "Erro ao atualizar usuario";
+        }
     }
 
     @Override
     public String deletar(Long id) {
-        repository.delete(id);
-        return "Usuario excluido com sucesso";
+        try {
+            repository.delete(id);
+            return "Usuario excluido com sucesso";
+        } catch (Exception e) {
+            return "Erro ao deletar usuario";
+        }
     }
 
     @Override
